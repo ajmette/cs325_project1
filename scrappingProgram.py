@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver 
 from selenium.webdriver.chrome.options import Options
 
-                                                            # Set Chrome options
+                                                            # Set Chrome options, so then doesn't open Chrome browser
 chrome_options = Options()
 chrome_options.add_argument("--headless")                   # Run Chrome in headless mode
 chrome_options.add_argument("--no-sandbox")                 # Optional: Required for certain Linux setups
