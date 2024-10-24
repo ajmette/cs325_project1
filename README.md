@@ -2,11 +2,11 @@
 
 ## Libraries Used:
 
-    1. beautifulsoup4 (used to scrape websites, `pip install beautifulsoup4`)
+    1. beautifulsoup4 (used to scrape websites, pip install beautifulsoup4)
 
-    2. requests (used for abstracting html, `pip install requests`)
+    2. requests (used for abstracting html, pip install requests)
 
-    3. selenium (used for abstracting html when dynamic, `pip install selenium`)
+    3. selenium (used for abstracting html when dynamic, pip install selenium)
 
 
 ## How to use review scraper:
@@ -15,7 +15,7 @@
 
     2. download the requirements.yaml file
 
-    3. run command ` conda env create -f requirements.yaml ` to create a conda evironment with the needed requirements
+    3. run command conda env create -f requirements.yaml to create a conda evironment with the needed requirements
 
     4. download urls.txt and scrappingProgram.py files
 
@@ -28,6 +28,5 @@
 
 ## What this program does:
 
-    ``` 
+    
     This program takes an input text file of ebay urls. It scrapes those urls for all the products' reviews by going to the "See all feedback" page and looping through all the review pages. The reviews are then written to output files (separate output file for each url/product provided).
-    ```
