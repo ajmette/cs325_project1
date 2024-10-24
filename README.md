@@ -28,6 +28,6 @@
 
 ## What this program does:
 
-    ''' 
+    ``` 
     This program takes an input text file of ebay urls. It scrapes those urls for all the products' reviews by going to the "See all feedback" page and looping through all the review pages. The reviews are then written to output files (separate output file for each url/product provided).
-    '''
+    ```
