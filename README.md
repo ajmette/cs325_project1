@@ -1,4 +1,6 @@
-Libraries Used:
+#Product Review Scraper
+
+##Libraries Used:
 
     1. beautifulsoup4 (used to scrape websites, pip install beautifulsoup4)
 
@@ -7,7 +9,7 @@ Libraries Used:
     3. selenium (used for abstracting html when dynamic, pip install selenium)
 
 
-How to use review scraper:
+##How to use review scraper:
 
     1. make sure to have Conda installed and working
 
@@ -24,6 +26,6 @@ How to use review scraper:
     7. to add or change which ebay products are scraped, either add or replace ebay urls in urls.txt (each url needs to be on a new line)
 
 
-What this program does:
+##What this program does:
 
     This program takes an input text file of ebay urls. It scrapes those urls for all the products' reviews by going to the "See all feedback" page and looping through all the review pages. The reviews are then written to output files (separate output file for each url/product provided).
