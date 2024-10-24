@@ -23,7 +23,7 @@
 
     6. an output file (reviews_product<#>.txt) will be created for each product's reviews
 
-    7. to add or change which ebay products are scraped, either add or replace ebay urls in urls.txt (each url needs to be on a new line)
+    7. to add or change which ebay products are scraped, either add or replace ebay urls in urls.txt (each url needs to be on a new line). If the new link's html formatting is too different, the code might throw an error.
 
 
 ## What this program does:
