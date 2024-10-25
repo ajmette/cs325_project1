@@ -13,6 +13,7 @@ chrome_options.add_argument("--disable-dev-shm-usage")      # Optional: Helps wi
 with open("urls.txt", 'r') as input:                        # Read product urls from txt file                     
     urls = input.readlines()
 
+input.close()
 
 count = 1                                                   # Used to name output files
 
@@ -21,7 +22,8 @@ for url in urls:
     driver.get(url)
 
     html = driver.page_source                               # Get the page source after all JavaScript has loaded
-    
+    driver.quit()
+
     soup = BeautifulSoup(html, 'html.parser')               # Parse the HTML to make easier to extract the user reviews
     
                                                             # Finds "See all feedback" button on product page
@@ -62,9 +64,5 @@ for url in urls:
     with open("reviews_product" + str(count)+".txt", "w", encoding="utf-8") as output:
                 output.write(reviews)
 
+    output.close()
     count += 1                                              # Increment for next output filename
-
-
-driver.quit()                                               # quit and close
-output.close()
-input.close()
