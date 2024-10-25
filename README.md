@@ -15,7 +15,7 @@
 
     2. download the requirements.yaml file
 
-    3. run command <code> conda env create -f requirements.yaml </code> to create a conda evironment with the needed requirements
+    3. run command "conda env create -f requirements.yaml" to create a conda evironment with the needed requirements
 
     4. download urls.txt and scrappingProgram.py files
 
