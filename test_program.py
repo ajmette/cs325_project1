@@ -120,19 +120,6 @@ def test_get_reviews(mock_create_folder, mock_requests_get, mock_webdriver):
     assert content == expected_content
 
 
-#def test_plot_combined_graph_data():
-#    products = [
-#        MockProduct("Product 1", 10, 5, 3),
-#        MockProduct("Product 2", 20, 7, 6),
-#        MockProduct("Product 3", 15, 10, 4),
-#    ]
-#    result = Plot_Combined_Graph(products, return_data=True)
-#
-#    assert result["product_names"] == ["Product 1", "Product 2", "Product 3"]
-#    assert result["positive_counts"] == [10, 20, 15]
-#    assert result["negative_counts"] == [5, 7, 10]
-#    assert result["neutral_counts"] == [3, 6, 4]
-
 @pytest.mark.mpl_image_compare
 def test_plot_combined_graph():
     class MockProduct:
@@ -154,15 +141,3 @@ def test_plot_combined_graph():
         MockProduct("Product 3", 15, 10, 4),
     ]
     Plot_Combined_Graph(products)
-    #plt.close(fig)
-
-
-
-
-#def test_delete():
-#    if os.path.exists(test_folder_path):
-#        print(f"Folder '{test_folder_path}' exists. Deleting...")
-#        shutil.rmtree(test_folder_path)
-#        print("Folder deleted.")
-#    else:
-#        print(f"Folder '{test_folder_path}' does not exist.")
