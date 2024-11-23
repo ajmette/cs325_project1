@@ -12,18 +12,15 @@ from config import reviews_folder_path, sentiments_folder_path, product_instance
 
 class LM_Interface(ABC):
     @abstractmethod
-    def generate_response(self, prompt: str) -> str:
-        """Generate a response from the language model."""
+    def generate_response(self, prompt: str) -> str: # Generate a response from the language model
         pass
 
 
 class Phi3Model(LM_Interface):
     def __init__(self, sentiments_folder_path: str):
         self.sentiments_folder_path = sentiments_folder_path
-        #os.makedirs(self.sentiments_folder_path, exist_ok=True)  # Ensure the folder exists
 
-    def generate_response(self, prompt: str) -> str:
-        """Generate a response from phi3 for a single prompt."""
+    def generate_response(self, prompt: str) -> str:            # Generate a response from phi3 for a single prompt
         response = ollama.chat(
             model='phi3',
             messages=[{
@@ -42,43 +39,38 @@ class Phi3Model(LM_Interface):
             full_response += chunk['message']['content']
         return full_response
 
-    def analyze_reviews(self, reviews: list[str], count) -> None:
-        """
-        Analyzes a list of reviews and writes sentiment analysis results to text files.
+    def analyze_reviews(self, reviews: list[str], count) -> None: # Analyzes a list of reviews and writes sentiment analysis results to text files.
 
-        :param reviews: A list of reviews to analyze
-        """
         responses = ""
-        #for count, review in enumerate(reviews, start=1):
+
         for review in reviews:
-            # Create the prompt for the current review
+            
             prompt = (
                 f"Please rate the following review as Negative, Positive, or Neutral: {review}. "
                 "Please only respond with a single word."
             )
             
-            # Generate response using phi3
-            responses += self.generate_response(prompt) + "\n"
+            responses += self.generate_response(prompt) + "\n"  # Generate response using phi3 using above prompt
 
-            # Write the response to a file
+            
         with open(os.path.join(self.sentiments_folder_path, f"sentiments_product{count}.txt"), "w", encoding="utf-8") as output:
-            output.write(responses)  # Write the response and add a newline
+            output.write(responses)                             # Write the response to file and add a newline
 
         return responses
 
 
-def create_folder(path): # Creates the above folders if they don't already exists
+def create_folder(path):                                        # Creates the folders if they don't already exists
     if not os.path.exists(path):
         os.makedirs(path)
 
 class SentimentAnalysis:
-    def __init__(self, product_name): # Stores the count for each sentiment
+    def __init__(self, product_name):                           # Stores the count for each sentiment
         self.product_name = product_name
         self.positive = 0
         self.negative = 0
         self.neutral = 0
 
-    def add_sentiment(self, sentiment): # Increment the sentiment count based on the input
+    def add_sentiment(self, sentiment):                         # Increment the sentiment count based on the input
         if sentiment.lower() == "positive":
             self.positive += 1
         elif sentiment.lower() == "negative":
@@ -102,7 +94,7 @@ def Get_Reviews(file, reviews_folder_path):
     chrome_options.add_argument("--no-sandbox")                 # Optional: Required for certain Linux setups
     chrome_options.add_argument("--disable-dev-shm-usage")      # Optional: Helps with memory issues
 
-    with open(file, 'r', encoding="utf-8") as input:      # Read product urls from txt file                     
+    with open(file, 'r', encoding="utf-8") as input:            # Read product urls from txt file                     
         urls = input.readlines()
 
     input.close()
@@ -177,11 +169,9 @@ def Get_Sentiments(file_path, product_name, product_instances, count):
         reviews_read = file.readlines()
     file.close()
 
-    # Initialize Phi3Model with the folder path for sentiment files
-    phi3 = Phi3Model(sentiments_folder_path)
+    phi3 = Phi3Model(sentiments_folder_path)                    # Initialize Phi3Model with the folder path for sentiment files
 
-    # Perform sentiment analysis and save results to files
-    responses = phi3.analyze_reviews(reviews_read, count)
+    responses = phi3.analyze_reviews(reviews_read, count)       # Perform sentiment analysis and save results to files
 
     with open(os.path.join(sentiments_folder_path, f"sentiments_product{count}.txt"), 'r', encoding="utf-8") as reading:
         lines = reading.readlines()
@@ -208,7 +198,7 @@ def find_instance_by_value(instances, target_value):
     return None                                                 # Return None if no match is found
 
 
-def Plot_Combined_Graph(product_instances): #, return_data=False):
+def Plot_Combined_Graph(product_instances):
     total_products = len(product_instances)                     # Define the number of products
     
     fig, ax = plt.subplots(figsize=(10, 6))                     # Set up figure and axes
@@ -242,11 +232,3 @@ def Plot_Combined_Graph(product_instances): #, return_data=False):
 
     plt.tight_layout()                                          # Adding labels and title
     plt.show()
-
-    #if return_data:
-    #    return {
-    #        "product_names": [product.product_name for product in product_instances],
-    #        "positive_counts": pos_counts,
-    #        "negative_counts": neg_counts,
-    #        "neutral_counts": neutral_counts,
-    #    }
