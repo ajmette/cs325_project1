@@ -9,15 +9,15 @@
 
 ## How to use:
 1. make sure to have Conda installed and working
-2. download the requirements.yaml file
-3. run command "conda env create -f requirements.yaml" to create a conda evironment with the needed requirements
+2. download the `requirements.yaml` file
+3. run command `conda env create -f requirements.yaml` to create a conda evironment with the needed requirements
 4. make sure Ollama phi3 is running
-5. download urls.txt, program.py, modules.py, config.py files <br>
+5. download `urls.txt`, `program.py`, `modules.py`, and `config.py` files <br>
 ‼️ **Note:** Make sure to change `reviews_folder_path` and `sentiments_folder_path` in the `config.py` file
-6. run program.py inside the environment
-7. reviews_product<#>.txt files will be created (one for each of the links/products)
-8. sentiments_product<#>.txt files will be created from each of the reviews_product<#>.txt files
-9. an overall graph will be created to compare all of the sentiments_product<#>.txt files
+6. run `program.py` inside the environment
+7. `reviews_product<#>.txt` files will be created (one for each of the links/products)
+8. `sentiments_product<#>.txt` files will be created from each of the `reviews_product<#>.txt` files
+9. an overall graph will be created to compare all of the `sentiments_product<#>.txt` files
 
 
 ## What this program does:
