@@ -12,7 +12,7 @@
 2. download the requirements.yaml file
 3. run command "conda env create -f requirements.yaml" to create a conda evironment with the needed requirements
 4. make sure Ollama phi3 is running
-5. download urls.txt and program.py files
+5. download urls.txt and program.py files <br>
 **NOTE:** change reviews_folder_path and sentiments_folder_path in config.py file
 6. run program.py inside the environment
 7. reviews_product<#>.txt files will be created (one for each of the links/products)
