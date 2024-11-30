@@ -1,3 +1,9 @@
+## What this program does:
+This program takes a single text file with ebay product urls as input. These urls are scraped for all of the reviews for that product. A reivew_product text file is created for each given product. Phi3 then gives a one word sentiment (positive, negative, or neutral) for each review in each of the files. These sentiments are stored in text files (again one file for each given product url). The program then creates a single graph comparing the counts of positive, negative, and neutral between each product.
+
+![combined graph of multiple products' sentiments](graph.png)
+
+
 ## Libraries used:
 - ollama (interact with SLM phi3)
 - os (navigate file explorer)
@@ -18,9 +24,3 @@
 7. `reviews_product<#>.txt` files will be created (one for each of the urls/products)
 8. `sentiments_product<#>.txt` files will be created from each of the `reviews_product<#>.txt` files
 9. an overall graph will be created to compare all of the `sentiments_product<#>.txt` files
-
-
-## What this program does:
-This program takes a single text file with ebay product urls as input. These urls are scraped for all of the reviews for that product. A reivew_product text file is created for each given product. Phi3 then gives a one word sentiment (positive, negative, or neutral) for each review in each of the files. These sentiments are stored in text files (again one file for each given product url). The program then creates a single graph comparing the counts of positive, negative, and neutral between each product.
-
-![combined graph of multiple products' sentiments](graph.png)
